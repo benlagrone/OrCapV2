@@ -1,0 +1,34 @@
+// -----------------------------
+// = Core site layout
+// -----------------------------
+
+.container {
+	position: relative;
+}
+
+.section-body {
+	margin-top: 0;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: $primaryWhite;
+	@include respond-to(medium) {
+		width: 760px;
+		margin-bottom: 30px;
+	}
+	@include respond-to(large) {
+		width: 980px;
+	}
+	@include respond-to(x-large) {
+		width: 1180px;
+	}
+}
+
+// Landscape
+.iPhone,
+.Android {
+	.section-body {
+		@media only screen and (orientation: landscape) {
+			margin-top: 52px;
+		}
+	}
+}

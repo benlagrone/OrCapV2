@@ -1,0 +1,33 @@
+// -----------------------------
+// = Base HTML Styling
+// -----------------------------
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+	background-color: $neutralGreyLightest;
+}
+
+hr {
+	&.dashed {
+		margin: 20px 0;
+		border: 1px dashed $neutralGrey;
+	}
+}
+
+a {
+	cursor: default;
+	color: $secondaryBlue;
+	text-decoration: none;
+	&:visited {
+		color: $secondaryBlue;
+	}
+	&:hover,
+	&:active {
+		color: $secondaryBlueBright;
+		text-decoration: none;
+	}
+}

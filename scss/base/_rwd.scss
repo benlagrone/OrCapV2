@@ -1,0 +1,61 @@
+// -----------------------------
+// = RWD for Large Screen ONLY
+// -----------------------------
+
+.section-body {
+	@include respond-to(large) {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-content: flex-start;
+		align-items: stretch;
+	}
+}
+
+.chart-container {
+	@include respond-to(large) {
+		order: 0;
+		flex: 1 0 60%;
+		max-width: 60%;
+		//border-bottom: 1px solid $neutralGrey;
+		background-color: $neutralGreyLightest;
+	}
+}
+
+.daily-metrics {
+	@include respond-to(large) {
+		order: 1;
+		flex: 1 0 40%;
+		max-width: 40%;
+		align-self: stretch;
+	}
+}
+
+.ood {
+	@include respond-to(large) {
+		order: 2;
+		flex-basis: 100%;
+	}
+}
+
+.top-metrics {
+	@include respond-to(large) {
+		display: none;
+	}
+}
+
+.metrics-grid {
+	.data-item {
+		@include respond-to(large) {
+			flex-basis: 50%;
+			max-width: 50%;
+		}
+	}
+}
+
+.data-item.halfgauge {
+	@include respond-to(large) {
+		flex-basis: 100%;
+		max-width: 100%;
+	}
+}

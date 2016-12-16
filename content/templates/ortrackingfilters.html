@@ -1,0 +1,53 @@
+<div class="container filter-panel">
+
+	<div class="form-group">
+		<label>Facility - Global</label>
+		<select class="select" name="facility" ng-model="filters.facility"
+						ng-options="item.InternalId as item.Name for item in filtersOptions.facilitiesOptions">
+		</select>
+	</div>
+	<div class="form-group">
+		<label>Service</label>
+		<select class="select" name="service"
+						ng-disabled="filters.roboblocks" ng-model="filters.service"
+						ng-options="item.value as item.title for item in filtersOptions.serviceOptions">
+		</select>
+	</div>
+
+	<hr class="dashed">
+
+	<div class="checkbox-group">
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" ng-model="filters.booked" ng-change="" name="booked">
+				Show Booked
+			</label>
+		</div>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" ng-model="filters.actual" ng-change="" name="actual">
+				Show Actual
+			</label>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label>Room</label>
+		<select class="select" name="room" ng-model="filters.room"
+						ng-options="item.id as item.description for item in filtersOptions.roomOptions">
+		</select>
+	</div>
+	<div class="form-group">
+		<label>Resolution</label>
+		<select class="select" name="resolution" ng-model="filters.resolution"
+						ng-options="item.optionValue as item.optionId for item in filtersOptions.resolutionOptions">
+		</select>
+	</div>
+	<div class="form-group">
+		<label>On-Time Start Threshold</label>
+		<select class="select" name="onTimeThreshold" ng-model="filters.onTimeThreshold"
+						ng-options="item.optionValue as item.optionId for item in filtersOptions.onTimeThresholdOptions">
+		</select>
+	</div>
+
+</div>

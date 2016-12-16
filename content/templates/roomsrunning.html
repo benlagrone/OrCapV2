@@ -1,0 +1,77 @@
+<calendarnav>
+	<!--Header Date for Landscape-->
+	<div class="headerDate" resize>{{day.format("MMM DD, YYYY")}}</div>
+	<!--Month Calendar-->
+	<calendar selected="day" ng-hide="landscapemodehide()"></calendar>
+</calendarnav>
+<!--Rooms Running-->
+<div class="section-body roomsrunning" ng-class="{calendaropen:showCal}">
+
+	<div ng-hide="landscapemodehide()" class="top-metrics">
+		<div style="color:{{topData.color}};" title="Capacity Booked">
+			<span>{{topData.CB}}%</span> <span style="color:{{topData.color}}; font-weight: bold;" class="metric-name" metrics-abbr="CB" metrics-label="Capacity Booked"></span>
+		</div>
+		<div title="Staffed Minutes">
+			<span>{{topData.SM}}</span> <span class="metric-name" metrics-abbr="SM" metrics-label="Staffed Minutes"></span>
+		</div>
+		<div title="Booked Cases">
+			<span>{{topData.BC}}</span> <span class="metric-name" metrics-abbr="BC" metrics-label="Booked Cases"></span>
+		</div>
+		<div title="SB Case Count">
+			<span>{{topData.SBBC}}</span> <span class="metric-name" metrics-abbr="SBCC" metrics-label="SB Case Count"></span>
+		</div>
+	</div>
+
+
+	<div class="chart-container">
+		<div class="filterbar">
+		<div class="active-filters"><span>Filtered By:</span> <a href="{{filterLink}}">{{label.filtersApplied()}}{{foo()}}</a></div>
+
+			<input type="checkbox" value="selected" id="ort-legend" class="legend-input">
+			<label for="ort-legend" class="show-legend"> <i class="orc orc-2x"></i></label>
+			<div role="tooltip" class="legend" title="legend">
+				<ul>
+					<li class="rr-booked">Booked</li>
+					<li class="rr-actual">Actual</li>
+				</ul>
+				<ul>
+					<li class="rr-staffed">Staffed</li>
+					<li class="rr-total-avail-rooms">Total Available Rooms: {{availRooms}}</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--Chart-->
+		<div class="roomsrunning-chart">
+			<div class="k-chart" kendo-chart k-options="barChart" k-data-source="rooms"></div>
+		</div>
+	</div>
+
+	<!--Metrics-->
+	<div class="daily-metrics" ng-hide="landscapemodehide()">
+		<div class="metrics-grid">
+			<div ng-repeat="day in dailyMetricsList | orderBy:'order'" class="{{day.class}} data-item">
+
+				<div ng-class="{'percent':day.percent}" class="data-cell-group">
+					<div class="chart-data" ng-if="!day.percent">{{day.chartData}}</div>
+					<div class="data-label-group">
+						<div class="gauge-container">
+							<div class="gauge-item" kendo-radialgauge k-pointer="[]" k-scale="day.gauge" k-rebind="day.gauge" ng-if="day.percent"></div>
+							<div class="gauge-value" style="color:{{day.gauge.ranges[0].color}};" ng-if="day.percent">{{day.value}}%
+							</div>
+						</div>
+						<i ng-if="!day.percent" class="orc {{day.icon}} orc-2x"></i>
+						<span class="item-label">{{day.label}} <sub>{{day.subtext}}</sub></span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--Officer of the Day-->
+	<div class="ood">
+		Officer of the Day (OOD): <span class="ood-name">{{OOD}}</span>
+	</div>
+
+</div>

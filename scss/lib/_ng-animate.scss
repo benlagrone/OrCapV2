@@ -1,0 +1,20 @@
+// -----------------------------
+// = ng-Animate Default Settings
+// -----------------------------
+.ng-animate.item:not(.left):not(.right) {
+  transition: 0s ease-in-out left
+}
+
+.animate-show {
+  opacity: 1;
+}
+
+.animate-show.ng-hide {
+  max-height: 0;
+  opacity: 0;
+}
+
+.animate-show.ng-hide-add,
+.animate-show.ng-hide-remove {
+  transition: all linear 0.5s;
+}

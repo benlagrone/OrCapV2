@@ -1,0 +1,44 @@
+.refresh-data {
+	height: 0;
+	display: none;
+	animation: 0.5s ptr-slide-down;
+	> span {
+		opacity: 0;
+	}
+}
+
+.pull {
+	.refresh-data {
+		width: 100%;
+		height: 64px;
+		display: inline-table;
+		color: $neutralGreyDark;
+		text-align: center;
+		background-color: $neutralGrey;
+		animation: 0.5s ptr-slide-down;
+		> span {
+			opacity: 1;
+			transition: all linear 1s;
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+}
+
+@keyframes ptr-slide-down {
+	0% {
+		height: 0;
+	}
+	100% {
+		height: 64px;
+	}
+}
+
+@keyframes ptr-slide-up {
+	0% {
+		height: 64px;
+	}
+	100% {
+		height: 0;
+	}
+}

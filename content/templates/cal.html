@@ -1,0 +1,31 @@
+<!--Date Bar-->
+<div id="date-bar" class="date-bar calendar-affix-top" scroll ng-class="{'navbar-fixed-top':boolChangeClass}">
+	<div class="container header">
+		<span ng-click="previous()"><i class="orc orc-angle-left orc-2x"></i></span>
+		<span class="currentdate">{{$parent.day.format("MMM DD, YYYY")}}</span>
+		<span class="showtoday" ng-click="zoomToday()">TODAY</span>
+		<span ng-click="showCal=!showCal"><i class="orc orc-calendar"></i></span>
+		<span ng-click="next()"><i class="orc orc-angle-right orc-2x"></i></span>
+	</div>
+</div>
+
+<!--Month Calendar-->
+<div class="container calendar-affix-top" scroll ng-class="{'navbar-fixed-top':boolChangeClass}">
+	<div class="calendar-month animate-show" ng-show="showCal" ng-hide="!showCal" ng-animate>
+		<div class="week names">
+			<span class="day">Sun</span>
+			<span class="day">Mon</span>
+			<span class="day">Tue</span>
+			<span class="day">Wed</span>
+			<span class="day">Thu</span>
+			<span class="day">Fri</span>
+			<span class="day">Sat</span>
+		</div>
+		<div class="week" ng-repeat="week in weeks">
+			<div class="day" ng-class="{ today: day.isToday, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(selected) }" ng-click="select(day.date)" ng-repeat="day in week.days">
+				<span class="date">{{day.number}}</span>
+				<div class="cal-donut" data-role="chart" kendo-chart k-options="day.doughnut" k-data-source="day.uiData"></div>
+			</div>
+		</div>
+	</div>
+</div>

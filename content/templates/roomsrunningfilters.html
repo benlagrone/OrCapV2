@@ -1,0 +1,47 @@
+<div class="container filter-panel">
+
+	<div class="form-group">
+		<label>Facility - Global</label>
+		<select class="select" name="facility" ng-model="filters.facility"
+						ng-options="item.InternalId as item.Name for item in filtersOptions.facilitiesOptions">
+		</select>
+	</div>
+	<div class="form-group">
+		<label>Service</label>
+		<select class="select" name="service"
+						ng-disabled="filters.roboblocks" ng-model="filters.service"
+						ng-options="item.value as item.title for item in filtersOptions.serviceOptions">
+		</select>
+	</div>
+
+	<hr class="dashed">
+
+	<div class="checkbox-group">
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" ng-model="filters.roboblocks" ng-change="" name="booked">
+				View Robo Blocks
+				<span>Turn off Robo Blocks to enabale all options</span>
+			</label>
+		</div>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" ng-model="filters.booked" ng-change="" name="booked">
+				Booked
+			</label>
+		</div>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" ng-model="filters.actual" name="actual">
+				Actual
+			</label>
+		</div>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" ng-model="filters.standby" name="actual">
+				Include Standby Cases
+			</label>
+		</div>
+	</div>
+
+</div>

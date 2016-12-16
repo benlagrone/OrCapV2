@@ -1,0 +1,53 @@
+// -----------------------------
+// = Modal / Dialog
+// -----------------------------
+.modal-content {
+	border-radius: 2px;
+	.modal-header {
+		padding: 0;
+		border-bottom: 2px solid $secondaryBlue;
+		.modal-title {
+			height: 50px;
+			padding: 15px 40px 15px 15px;
+			color: #000;
+			font-size: 16px;
+			line-height: 20px;
+		}
+		.modal-close {
+			padding: 10px;
+			float: right;
+			position: relative;
+			text-align: center;
+			i {
+				font-weight: bold;
+			}
+			> span {
+				margin-top: -6px;
+				display: block;
+				font-size: 8px;
+			}
+		}
+	}
+	.modal-body {
+		padding: 0 0 20px;
+		table.on-time-start-delay {
+			width: 100%;
+			tr {
+				&:nth-of-type(odd) {
+					background-color: lighten($secondaryBlue, 50);
+				}
+			}
+			th {
+				background-color: $neutralGreyLightest;
+			}
+			th, td {
+				padding: 10px 14px;
+				font-weight: normal;
+				&:last-child {
+					text-align: center;
+					border-left: 1px solid $primaryWhite;
+				}
+			}
+		}
+	}
+}

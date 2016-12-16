@@ -1,0 +1,25 @@
+// -----------------------------
+// = Officer of the Day
+// -----------------------------
+.ood {
+	padding: 14px 8px;
+	color: $neutralGreyDark;
+	font-size: 14px;
+	font-family: serif;
+	text-align: center;
+	border: 1px solid $neutralGreyLight;
+	border-top: none;
+	@media only screen and (orientation: landscape) {
+		display: none;
+	}
+}
+
+// Lanscape
+.iPhone,
+.Android {
+	.ood {
+		@media only screen and (orientation: landscape) {
+			display: none;
+		}
+	}
+}

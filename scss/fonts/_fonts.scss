@@ -1,0 +1,22 @@
+// Minion Serif Font
+@font-face{
+  font-family:"Minion W01 Cap Regular";
+  src:url("/content/fonts/f1eed122-a501-4c59-85e4-4db18384cf87.eot?#iefix");
+  src:url("/content/fonts/f1eed122-a501-4c59-85e4-4db18384cf87.eot?#iefix") format("eot"),url("/content/fonts/c30f5672-a88d-407a-bf93-926f33c9d872.woff") format("woff"),url("/content/fonts/f008cedb-28d1-4788-aab9-82d6877f3939.ttf") format("truetype"),url("/content/fonts/6f6cb6b6-28c0-4542-b435-5e2ba7ed5a81.svg#6f6cb6b6-28c0-4542-b435-5e2ba7ed5a81") format("svg");
+}
+
+// Univers Sans-Serif Font
+@font-face{
+  font-family:"Univers LT W01_45 Light";
+  src:url("/content/fonts/2b61512c-069e-4111-bb23-9a918f94a74d.eot?#iefix");
+  src:url("/content/fonts/2b61512c-069e-4111-bb23-9a918f94a74d.eot?#iefix") format("eot"),url("/content/fonts/ecf89914-1896-43f6-a0a0-fe733d1db6e7.woff") format("woff"),url("/content/fonts/7628f343-8c36-4707-9559-8feb86c0462f.ttf") format("truetype"),url("/content/fonts/11b816e7-d678-48dd-bc75-560de9c19049.svg#11b816e7-d678-48dd-bc75-560de9c19049") format("svg");
+}
+@font-face{
+  font-family:"Univers LT W01_55 Roman";
+  src:url("/content/fonts/b5c30ea8-0700-4fd2-aa12-cc45074693a9.eot?#iefix");
+  src:url("/content/fonts/b5c30ea8-0700-4fd2-aa12-cc45074693a9.eot?#iefix") format("eot"),url("/content/fonts/7b95cb9a-a288-4405-97a0-13095f56a903.woff") format("woff"),url("/content/fonts/c7481806-4ea4-40db-a623-7bc352bbbe43.ttf") format("truetype"),url("/content/fonts/ac8280da-3de5-456d-bd77-8f01665452a9.svg#ac8280da-3de5-456d-bd77-8f01665452a9") format("svg");
+}
+
+$minion: 'Minion W01 Cap Regular', serif;
+$univers: 'Univers LT W01_55 Roman', sans-serif;
+$universLight: 'Univers LT W01_45 Light', sans-serif;

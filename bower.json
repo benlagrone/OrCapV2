@@ -1,0 +1,39 @@
+{
+  "name": "ORCapV2",
+  "description": "Operating Room Capacity",
+  "main": "index.html",
+  "authors": [
+    "Ben <blagrone@mdanderson.org>",
+    "Chris <cedwards3@mdanderson.org>",
+    "Hope <hnatina@mdanderson.org>"
+  ],
+  "license": "MIT",
+  "homepage": "http://localhost:8079/index.html",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.9",
+    "angular-animate": "~1.4.8",
+    "angular-bootstrap": "~0.14.3",
+    "angular-route": "~1.4.8",
+    "bootstrap-sass-official": "~3.3.0",
+    "jquery": "~2.1.4",
+    "moment": "~2.10.6",
+    "requirejs": "~2.1.22",
+    "angular-cookies": "~1.4.9",
+    "angular-touch": "~1.4.9",
+    "x2js": "x2js#^1.2.0",
+    "hammerjs": "^2.0.6"
+  },
+  "devDependencies": {},
+  "resolutions": {
+    "angular": "~1.4.9"
+  }
+}

@@ -1,0 +1,62 @@
+// -----------------------------
+// = Form Elements
+// -----------------------------
+
+// Select box styling
+select.select {
+	width: 100%;
+	margin: 0;
+	padding: 0.4em 3.5em 0.4em 1em;
+	font-size: responsive 16px 18px;
+	font-range: $small $x-large;
+	line-height: 1.5em;
+	border: thin solid $neutralGrey;
+	border-radius: 2px;
+	background-color: $primaryWhite;
+	display: inline-block;
+	// Disable inner-shadows on select boxes in iOS
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+// Custom styling for select in Webkit
+select.select {
+	background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+	linear-gradient(135deg, gray 50%, transparent 50%),
+	linear-gradient(to right, #ccc, #ccc);
+	background-position: calc(100% - 20px) calc(1em + 2px),
+	calc(100% - 15px) calc(1em + 2px),
+	calc(100% - 2.5em) 0.4em;
+	background-size: 5px 5px,
+	5px 5px,
+	1px 1.5em;
+	background-repeat: no-repeat;
+	&:focus {
+		background-image: linear-gradient(45deg, transparent 50%, $secondaryBlueBright 50%),
+		linear-gradient(135deg, $secondaryBlueBright 50%, transparent 50%),
+		linear-gradient(to right, #ccc, #ccc);
+		background-position: calc(100% - 20px) calc(1em + 2px),
+		calc(100% - 15px) calc(1em + 2px),
+		calc(100% - 2.5em) 0.4em;
+		background-size: 5px 5px,
+		5px 5px,
+		1px 1.5em;
+		background-repeat: no-repeat;
+		border-color: $secondaryBlueBright;
+		outline: 0;
+	}
+	&:disabled {
+		color: $neutralGrey;
+		background-image: linear-gradient(45deg, transparent 50%, $neutralGrey 50%),
+		linear-gradient(135deg, $neutralGrey 50%, transparent 50%),
+		linear-gradient(to right, #ccc, #ccc);
+		background-color: $neutralGreyLightest;
+	}
+}
+select:-moz-focusring {
+	color: transparent;
+	text-shadow: 0 0 0 #000;
+}
+// Remove IE select arrow
+select::-ms-expand {
+	display: none;
+}

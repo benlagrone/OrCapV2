@@ -1,0 +1,36 @@
+// -----------------------------
+// = @Media Breakpoints
+// -----------------------------
+//Sass-map
+$breakpoints: (
+		small: 480px,
+		medium: 768px,
+		large: 992px,
+		x-large: 1200px
+);
+$orientation: (
+		portrait: portrait,
+		landscape: landscape
+);
+
+// RWD variables
+$small: map-get($breakpoints, small);
+$medium: map-get($breakpoints, medium);
+$large: map-get($breakpoints, large);
+$x-large: map-get($breakpoints, x-large);
+$portrait: map-get($orientation, portrait);
+$landscape: map-get($orientation, landscape);
+
+// RWD Mixin using sass-maps
+@mixin respond-to($breakpoint) {
+	$value: map-get($breakpoints, $breakpoint);
+	@if $value != null {
+		@media (min-width: $value) {
+			@content;
+		}
+	}
+	@else {
+		@warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+	}
+}

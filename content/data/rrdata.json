@@ -1,0 +1,39 @@
+{"RoomsRunning":
+[
+  {"time_interval":"6-7AM","staff_count":0,"room_count":0,"room_case_count":0},
+  {"time_interval":"7-8AM","staff_count":0,"room_count":0,"room_case_count":0},
+  {"time_interval":"8-9AM","staff_count":0,"room_count":0,"room_case_count":0},
+  {"time_interval":"9-10AM","staff_count":0,"room_count":0,"room_case_count":0},
+  {"time_interval":"10-11AM","staff_count":0,"room_count":0,"room_case_count":0},
+  {"time_interval":"11-12Noon","staff_count":0,"room_count":0,"room_case_count":0},
+  {"time_interval":"12-1PM","staff_count":10,"room_count":0,"room_case_count":0},
+  {"time_interval":"1-2PM","staff_count":25,"room_count":0,"room_case_count":20},
+  {"time_interval":"2-3PM","staff_count":12,"room_count":0,"room_case_count":20},
+  {"time_interval":"3-4PM","staff_count":0,"room_count":0,"room_case_count":0},
+  {"time_interval":"4-5PM","staff_count":0,"room_count":0,"room_case_count":0},
+  {"time_interval":"5-6PM","staff_count":0,"room_count":0,"room_case_count":0},
+  {"time_interval":"6-7PM","staff_count":0,"room_count":0,"room_case_count":0},
+  {"time_interval":"7-8PM","staff_count":0,"room_count":0,"room_case_count":0},
+  {"time_interval":"8-9PM","staff_count":0,"room_count":0,"room_case_count":0},
+  {"time_interval":"9-10PM","staff_count":0,"room_count":0,"room_case_count":0},
+  {"time_interval":"10-11PM","staff_count":0,"room_count":0,"room_case_count":0},
+  {"time_interval":"11-12Midnight","staff_count":0,"room_count":0,"room_case_count":0}
+],
+  "DailyMetrics":
+  {
+    "booked_case_count":10,
+    "booked_start":10,
+    "tot_staff_mins":10,
+    "tot_booked_mins":10,
+    "actual_start_pat_in":10,
+    "percent_pat_in":10,
+    "avg_pat_turnover_time":10,
+    "actual_case_count":10,
+    "tot_actual_mins":10,
+    "tot_turnover_mins":10,
+    "tot_actual_mins_w_turnover":10,
+    "actual_percentage":10,
+    "first_case_wasted_mins":10
+  },
+  "TotalAvailableRooms":31
+}

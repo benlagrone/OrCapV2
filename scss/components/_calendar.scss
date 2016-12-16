@@ -1,0 +1,180 @@
+// -----------------------------
+// = Calendar Month View
+// -----------------------------
+calendar {
+	position: relative;
+	.container {
+		padding: 0;
+	}
+}
+
+.calendar-month {
+	max-height: 0;
+	width: 100%;
+	bottom: 0;
+	margin: 0;
+	z-index: 999;
+	display: inline-table;
+	position: fixed; // Leave for other browsers
+	//position: sticky; // Fixes iOS position fixed jitter issue when added to Home Screen.
+	box-sizing: border-box;
+	box-shadow: 0 -2px 2px rgba($primaryBlack, .3);
+	background: $primaryWhite;
+	@include respond-to(medium) {
+		top: 0;
+		right: 0;
+		width: 440px;
+		min-height: 280px;
+		max-height: 330px;
+		position: absolute;
+		border: 1px solid $secondaryBlue;
+		border-top: none;
+		box-shadow: 0 2px 2px rgba($primaryBlack, .3);
+	}
+	&.ng-enter {
+		left: 600px;
+		position: absolute;
+		opacity: 0;
+		@include respond-to(medium) {
+			right: 0;
+			left: inherit;
+		}
+	}
+	.week {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-content: stretch;
+		align-items: flex-start;
+		border-top: 1px solid $neutralGrey;
+		.day {
+			height: 48px;
+			padding-top: 2px;
+			overflow: hidden;
+			cursor: default;
+			color: $primaryBlack;
+			font-size: 8px;
+			text-align: center;
+			border-left: 1px solid $neutralGrey;
+			order: 0;
+			flex: 1 0 14.285714286%;
+			max-width: 14.285714286%; // Needed so IE respects precise %
+			align-self: auto;
+			position: relative;
+			@include respond-to(medium) {
+				font-size: 10px;
+			}
+			&:first-child {
+				color: $neutralGreyDark;
+				border-left: none;
+				background-color: $neutralGreyLightest;
+			}
+			&:last-child {
+				color: $neutralGreyDark;
+				background-color: $neutralGreyLightest;
+			}
+			&.different-month {
+				color: $neutralGreyDark;
+				background-color: $neutralGreyLightest;
+			}
+			&.selected,
+			&:hover {
+				padding-top: 0;
+				border: 2px solid $secondaryBlueLight;
+			}
+			&.selected {
+				color: $primaryBlack;
+			}
+			&:hover {
+			}
+		}
+		&.names {
+			border-top: 1px solid $neutralGreyDark;
+			@include respond-to(medium) {
+				border-top: none;
+			}
+			.day {
+				height: 32px;
+				display: inline-block;
+				color: $neutralGreyDarkest;
+				line-height: 32px;
+				font-weight: bold;
+				text-align: center;
+				text-transform: uppercase;
+				background: $neutralGrey;
+				&:hover {
+					padding-top: 2px;
+					border: none;
+				}
+			}
+		}
+		.date {
+			top: 2px;
+			right: 2px;
+			position: absolute;
+		}
+	}
+}
+
+// Position calendar below datebar on large screen
+.container.calendar-affix-top.navbar-fixed-top {
+	@media only screen and (orientation: landscape) {
+		top: 41px;
+		position: fixed;
+		z-index: 999;
+	}
+}
+
+.iPhone,
+.Android {
+	.calendaropen.section-body {
+		padding-bottom: 330px;
+	}
+}
+
+// Calendar Slide Animation
+.calendar-month {
+	&.ng-animate {
+		max-height: 330px;
+		opacity: 1;
+	}
+	&.ng-hide {
+		opacity: 1;
+	}
+	&.animate-show.ng-hide-add {
+		animation: 0.5s calendar-slide-down;
+	}
+	&.animate-show.ng-hide-remove {
+		animation: 0.5s calendar-slide-up;
+	}
+	@include respond-to(medium) {
+		&.ng-animate {
+			max-height: 330px;
+			opacity: 1;
+			transition: all cubic-bezier(0, 1, 0.5, 1) .3s;
+		}
+		&.ng-hide {
+			opacity: 0;
+			transition-duration: 0s;
+		}
+	}
+}
+
+@keyframes calendar-slide-up {
+	0% {
+		bottom: -330px;
+	}
+	100% {
+		bottom: 0;
+	}
+}
+
+@keyframes calendar-slide-down {
+	0% {
+		bottom: 0;
+	}
+	100% {
+		bottom: -330px;
+	}
+}

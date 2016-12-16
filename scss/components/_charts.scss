@@ -1,0 +1,21 @@
+// -----------------------------
+// = Chart Containers
+// -----------------------------
+
+// Calendar Donut Charts
+.cal-donut {
+	height: 46px;
+	width: 46px;
+}
+.cal-donut.k-chart {
+	top: 0;
+	position: relative;
+	display: inline-block;
+}
+
+// Bar Chart Chart
+.ortracking-chart,
+.roomsrunning-chart {
+	padding: 10px 0;
+	background-color: $neutralGreyLightest;
+}

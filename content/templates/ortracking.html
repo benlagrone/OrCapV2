@@ -1,0 +1,202 @@
+<!--Header Date for Landscape-->
+<div class="headerDate">{{day.format("MMM DD, YYYY")}}</div>
+<!--Month Calendar-->
+<calendar selected="day" ng-hide="landscapemodehide()"></calendar>
+
+<!--OR Tracking-->
+<div class="section-body ortracking" ng-class="{calendaropen:showCal}">
+
+	<div class="top-metrics" ng-hide="landscapemodehide()">
+		<div title="In Room Start" style="color:{{gauges[0].ranges[0].color}};">
+			<span>{{oRTrack.firstCase[0].patientInRoom.percent}}%</span> <span class="metric-name" metrics-abbr="IRST" metrics-label="In Room Start" style="color:{{gauges[0].ranges[0].color}};"></span>
+		</div>
+		<div title="Procedure Start" style="color:{{gauges[1].ranges[0].color}};">
+			  <span>{{oRTrack.firstCase[0].procedureStart.percent}}%</span> <span class="metric-name" metrics-abbr="PRST" metrics-label="Procedure Start" style="color:{{gauges[1].ranges[0].color}};"></span>
+		</div>
+		<div title="Average Patient Turnover Time" style="color:{{gauges[2].ranges[0].color}};">
+			<span>{{oRTrack.firstCase[0].averagePatientTurnoverTime}} <span class="small">min</span></span> <span class="metric-name" metrics-abbr="APTT" metrics-label="Avg Patient Turnover Time" style="color:{{gauges[2].ranges[0].color}};"></span>
+		</div>
+	</div>
+	<div class="chart-container">
+		<div class="filterbar">
+			<div class="active-filters"><span>Filtered By:</span> <a href="{{filterLink}}">{{label.filtersApplied()}}</a>
+			</div>
+			<input type="checkbox" value="selected" id="ort-legend" class="legend-input">
+			<label for="ort-legend" class="show-legend"> <i class="orc orc-2x"></i></label>
+			<div role="tooltip" class="legend" title="legend">
+				<ul>
+					<li class="ort-booking">Booking</li>
+					<li class="ort-booking-st">Booking Setup / TearDown</li>
+					<li class="ort-cut-ct">Cut -> Close Time</li>
+				</ul>
+				<ul>
+					<li class="ort-actual">Actual</li>
+					<li class="ort-actual-st">Actual Setup / TearDown</li>
+					<li class="ort-cut-ct">Cut -> Close Time</li>
+					<li class="ort-patient-tt">Patient Turnover Time</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--Chart-->
+		<div class="ortracking-chart">
+			<div ng-hide="hidechart" kendo-chart k-options="barChart" k-data-source="oRTrack" k-rebind="oRTrack"></div>
+			<div class="section-title ng-binding" ng-show="hidechart"> OR Tracking Room Data Not Available</div>
+
+		</div>
+	</div>
+
+	<!--Metrics-->
+	<div class="daily-metrics" ng-hide="landscapemodehide()">
+		<div class="metrics-grid">
+			<div class="metrics-title">1st Case % On Time Starts</div>
+			<div class="data-item halfgauge">
+				<div class="data-cell-group">
+					<div class="data-label-group">
+						<div class="gauge-container">
+							<div class="gauge-item" kendo-radialgauge k-pointer="[]" k-scale="gauges[0]" k-rebind="gauges[0]"></div>
+							<div class="gauge-value" style="color:{{gauges[0].ranges[0].color}};">{{oRTrack.firstCase[0].patientInRoom.percent}}%</div>
+						</div>
+						<div class="item-label">
+							<div class="chart-data">In Room</div>
+							<span class="starts">{{oRTrack.firstCase[0].patientInRoom.bookedStarts}}</span> Booked Starts
+							<span class="starts">{{oRTrack.firstCase[0].patientInRoom.actualStarts}}</span> Actual Starts
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="data-item halfgauge">
+				<div class="data-cell-group">
+					<div class="data-label-group">
+						<div class="gauge-container">
+							<div class="gauge-item" kendo-radialgauge k-pointer="[]" k-scale="gauges[1]" k-rebind="gauges[1]"></div>
+							<div class="gauge-value" style="color:{{gauges[1].ranges[0].color}};">{{oRTrack.firstCase[0].procedureStart.percent}}%</div>
+						</div>
+						<div class="item-label">
+							<div class="chart-data">Procedure Starts</div>
+							<span class="starts">{{oRTrack.firstCase[0].procedureStart.bookedStarts}}</span> Booked Starts
+							<span class="starts">{{oRTrack.firstCase[0].procedureStart.actualStarts}}</span> Actual Starts
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="data-item halfgauge">
+				<div class="data-cell-group">
+					<div class="data-label-group">
+						<div class="gauge-container">
+							<div class="gauge-item" kendo-radialgauge k-pointer="[]" k-scale="gauges[2]" k-rebind="gauges[2]"></div>
+							<div class="gauge-value" style="color:{{gauges[2].ranges[0].color}};">{{oRTrack.firstCase[0].averagePatientTurnoverTime}} <span class="small">min</span></div>
+						</div>
+						<div class="item-label">
+							<div class="chart-data"></div>
+							<div class="chart-data">Average Patient Turnover Time</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="metrics-grid">
+			<div class="data-item">
+				<div class="data-cell-group">
+					<div class="data-label-group">
+						<div class="gauge-container">
+							<div class="gauge-item" kendo-radialgauge k-pointer="[]" k-scale="gauges[3]" k-rebind="gauges[3]"></div>
+							<div class="gauge-value" style="color:{{gauges[3].ranges[0].color}};">{{oRTrack.dailyMetrics[0].actualPercentage.value}}%</div>
+						</div>
+						<i ng-class="oRTrack.dailyMetrics[0].actualPercentage.icon" class="orc-2x"></i>
+						<span class="gauge-item-label">Actual vs. Staffed</span>
+					</div>
+				</div>
+			</div>
+			<div class="data-item">
+				<div class="data-cell-group">
+					<div class="chart-data">
+						<a ng-hide="reasons.exist" ng-click='open()'>
+							{{oRTrack.dailyMetrics[0].wastedMins.value}}<span class="small-text">mins (Show Reasons)</span>
+						</a>
+					</div>
+					<div class="data-label-group">
+						<i ng-class="oRTrack.dailyMetrics[0].wastedMins.icon" class="orc-2x"></i>
+						<span class="item-label">On-Time Start Delay</span>
+					</div>
+				</div>
+			</div>
+			<div class="data-item">
+				<div class="data-cell-group">
+					<div class="chart-data">{{oRTrack.dailyMetrics[0].bookedCases.value}}</div>
+					<div class="data-label-group">
+						<i ng-class="oRTrack.dailyMetrics[0].bookedCases.icon" class="orc-2x"></i>
+						<span class="item-label">Booked Cases</span>
+					</div>
+				</div>
+			</div>
+			<div class="data-item">
+				<div class="data-cell-group">
+					<div class="chart-data">{{oRTrack.dailyMetrics[0].actualCases.value}}</div>
+					<div class="data-label-group">
+						<i ng-class="oRTrack.dailyMetrics[0].actualCases.icon" class="orc-2x"></i>
+						<span class="item-label">Actual Cases</span>
+					</div>
+				</div>
+			</div>
+			<div class="data-item">
+				<div class="data-cell-group">
+					<div class="chart-data">{{oRTrack.dailyMetrics[0].staffMins.value}}</div>
+					<div class="data-label-group">
+						<i ng-class="oRTrack.dailyMetrics[0].staffMins.icon" class="orc-2x"></i>
+						<span class="item-label">Staffed Mins</span>
+					</div>
+				</div>
+			</div>
+			<div class="data-item">
+				<div class="data-cell-group">
+					<div class="chart-data">{{oRTrack.dailyMetrics[0].totBookedMins.value}}</div>
+					<div class="data-label-group">
+						<i ng-class="oRTrack.dailyMetrics[0].totBookedMins.icon" class="orc-2x"></i>
+						<span class="item-label">Booked Mins</span>
+					</div>
+				</div>
+			</div>
+			<div class="data-item">
+				<div class="data-cell-group">
+					<div class="chart-data">{{oRTrack.dailyMetrics[0].totActualMins.value}}</div>
+					<div class="data-label-group">
+						<i ng-class="oRTrack.dailyMetrics[0].totActualMins.icon" class="orc-2x"></i>
+						<span class="item-label">Actual Mins</span>
+					</div>
+				</div>
+			</div>
+			<div class="data-item">
+				<div class="data-cell-group">
+					<div class="chart-data">{{oRTrack.dailyMetrics[0].totTurnoverMins.value}}</div>
+					<div class="data-label-group">
+						<i ng-class="oRTrack.dailyMetrics[0].totTurnoverMins.icon" class="orc-2x"></i>
+						<span class="item-label">Turnover Mins</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<!-- On-Time Start Delay Modal-->
+<script type="text/ng-template" id="myModalContent.html">
+	<div class="modal-header">
+		<a ng-click="cancel()" class="modal-close"><i class="orc orc-remove orc-3x"></i></a>
+		<h3 class="modal-title">1st Case On-Time Start Delay</h3>
+	</div>
+	<div class="modal-body">
+		<table class="on-time-start-delay">
+			<tr>
+				<th>Reason</th>
+				<th>Count</th>
+			</tr>
+			<tr ng-repeat="item in items.DelaySummaryDaily | orderBy:'item.DelayCount'">
+				<td>{{item.DelayReason}}</td>
+				<td>{{item.DelayCount}}</td>
+			</tr>
+		</table>
+	</div>
+</script>

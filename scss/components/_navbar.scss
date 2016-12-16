@@ -1,0 +1,240 @@
+// -----------------------------
+// = Main Navbar
+// -----------------------------
+
+.navbar {
+	border: none;
+	@include respond-to(medium) {
+		border-radius: 0;
+	}
+}
+
+// Landscape
+.iPhone,
+.Android {
+	.navbar {
+		@media only screen and (orientation: landscape) {
+			top: 0;
+			width: 100%;
+			z-index: 999;
+			position: fixed;
+		}
+	}
+}
+
+.navbar-nav {
+	margin: 0 -20px;
+	@include respond-to(medium) {
+		margin: 0;
+	}
+}
+
+.navbar-default {
+	margin-bottom: 0;
+	border-bottom: 2px solid $secondaryBlue;
+	background-color: $primaryWhite;
+	.app-title,
+	.section-title {
+		height: 50px;
+		color: $primaryBlack;
+		font-size: 16px;
+		line-height: 20px;
+	}
+	.app-title {
+		display: none;
+		@include respond-to(medium) {
+			max-width: 160px;
+			padding: 8px 15px;
+			display: block;
+			text-align: center;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	};
+	.section-title {
+		padding: 15px 40px;
+		text-align: center;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		@include respond-to(medium) {
+			//display: none;
+			min-width: 225px;
+			padding: 15px;
+		}
+	}
+	.navbar-toggle {
+		float: left;
+		margin-right: 0;
+		padding: 5px 10px 9px;
+		position: absolute;
+		color: $secondaryBlue;
+		text-align: center;
+		border-color: transparent;
+		&:hover,
+		&:focus {
+			background-color: transparent;
+		}
+		button {
+			border: none;
+			background-color: transparent;
+		}
+		.icon-bar {
+			background-color: $secondaryBlue;
+		}
+		span {
+			//margin-top: -6px;
+			display: block;
+			font-size: 8px;
+			text-transform: uppercase;
+			&:hover {
+				color: $secondaryBlueBright;
+				fill: $secondaryBlueBright;
+	}
+		}
+	}
+	.navbar-collapse {
+		border: none;
+		&.in {
+			width: 100%;
+			z-index: 999;
+			position: absolute;
+			border-top: 2px solid $secondaryBlue;
+			border-bottom: 1px solid $secondaryBlue;
+			background-color: $neutralGreyLightest;
+			box-shadow: 0 2px 2px rgba($primaryBlack, .3);
+			.navbar-nav > li > a {
+				border-left: 0;
+				border-bottom: 1px solid $neutralGrey;
+			}
+		}
+	}
+}
+
+// Landscape
+.iPhone,
+.Android {
+	.navbar-toggle {
+		@media only screen and (orientation: landscape) {
+			display: none;
+		}
+	}
+}
+
+.nav > li, .nav > li > a {
+	min-height: 50px;
+}
+
+.nav > li > a {
+	padding: 15px;
+	display: block;
+	position: relative;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: $secondaryBlue;
+	border-left: 1px solid $secondaryBlue;
+	background-color: $primaryWhite;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+	color: $secondaryBlueBright;
+	//border-top: 1px solid $secondaryBlue;
+	border-bottom: 1px solid $secondaryBlue;
+	background-color: $primaryWhite;
+	@include respond-to(medium) {
+		border-top: none;
+		border-bottom: none;
+	}
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+	color: $primaryWhite;
+	border-top: 1px solid $secondaryBlue;
+	border-bottom: 1px solid $secondaryBlue;
+	background-color: $secondaryBlue;
+	@include respond-to(medium) {
+		border-top: none;
+		border-bottom: none;
+	}
+}
+
+.nav > li.navbar-nav-title {
+	padding: 6px 14px;
+	color: $neutralGreyDark;
+	line-height: 2.5;
+	border-bottom: 1px solid $secondaryBlue;
+	background-color: $primaryWhite;
+	@include respond-to(medium) {
+		display: none;
+	}
+}
+
+.navbar-filter {
+	top: 0;
+	right: 0;
+	float: right;
+	position: absolute;
+	padding: 14px 10px 10px 20px;
+	display: inline-block;
+	text-align: center;
+	span {
+		margin-top: -3px;
+		display: block;
+		font-size: 8px;
+		text-transform: uppercase;
+	}
+	a.filtered {
+		color: $secondaryGreen;
+		fill: $secondaryGreen;
+		&:hover {
+			color: $secondaryBlueBright;
+			fill: $secondaryBlueBright;
+		}
+	}
+}
+
+.navbar-back {
+	top: 0;
+	left: 0;
+	padding: 6px 10px 0 20px;
+	float: left;
+	position: absolute;
+	display: inline-block;
+	text-align: center;
+	span {
+		margin-top: -3px;
+		padding-bottom: 4px;
+		display: block;
+		font-size: 8px;
+		text-transform: uppercase;
+	}
+	@include respond-to(medium) {
+		position: relative;
+	}
+}
+
+.footer-build {
+	padding: 10px 0;
+	color: $primaryRed;
+	font-size: 12px;
+	.build-number {
+		width: 150px;
+		right: 10px;
+		float: right;
+		display: inline-block;
+		overflow: hidden;
+		text-align: right;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		color: $neutralGreyDark;
+	}
+	@include respond-to(medium) {
+		display: none;
+	}
+}

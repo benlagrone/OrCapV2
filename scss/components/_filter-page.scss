@@ -1,0 +1,48 @@
+// -----------------------------
+// = Filters Panel
+// -----------------------------
+.filter-panel {
+	padding: 20px;
+	.form-group {
+		label {
+			color: $neutralGreyDark;
+			font-size: responsive 16px 18px;
+			font-range: $small $x-large;
+			font-family: serif;
+			display: block;
+		}
+	}
+	.form-control {
+		color: $neutralGreyDarkest;
+		&[disabled] {
+			color: $neutralGrey;
+		}
+	}
+	label {
+		font-weight: normal;
+	}
+	.checkbox-group {
+		margin-bottom: 20px;
+		.checkbox {
+			margin: 20px 0;
+		}
+		label {
+			font-size: responsive 16px 18px;
+			font-range: $small $x-large;
+			span {
+				margin-top: 5px;
+				display: block;
+				color: $neutralGreyDark;
+				font-family: Minion W01 Cap Regular, serif;
+			}
+		}
+	}
+}
+
+// Landscape
+.iPhone,
+.Android {
+	@media only screen and (orientation: landscape) {
+		margin-top: 52px;
+	}
+}

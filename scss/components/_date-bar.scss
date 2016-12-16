@@ -1,0 +1,81 @@
+// -----------------------------
+// = Date Bar
+// -----------------------------
+.date-bar {
+	width: 100%;
+	color: $primaryWhite;
+	text-align: center;
+	background: $secondaryBlue;
+	.header {
+		padding: 0;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-content: center;
+		align-items: stretch;
+		a {
+			color: $primaryWhite;
+		}
+		span, i {
+			font-size: 16px;
+			line-height: 2.5;
+			display: inline-block;
+			&:hover {
+				cursor: default;
+				text-decoration: none;
+			}
+		}
+		span {
+			order: 0;
+			flex: 0 1 40px;
+			align-self: center;
+			i {
+				font-weight: bold;
+			}
+			&:hover {
+				background-color: rgba($primaryWhite, .2);
+				&:nth-child(2) {
+					background-color: transparent;
+				}
+			}
+		}
+		.currentdate {
+			padding-left: 10px;
+			order: 0;
+			flex: 1 0 auto;
+			text-align: left;
+		}
+		.showtoday {
+			padding: 0 10px;
+			order: 0;
+			flex: 0 1 auto;
+			font-size: 12px;
+			line-height: 40px;
+			font-family: serif;
+		}
+	}
+}
+
+// Header Date for Landscape
+.headerDate {
+	display: none;
+}
+
+// Landscape
+.iPhone,
+.Android {
+	.headerDate {
+		@media only screen and (orientation: landscape) {
+			z-index: 999;
+			height: 50px;
+			padding: 15px 0 15px 20px;
+			top: 0;
+			position: fixed;
+			display: inline-block;
+			font-size: responsive 16px 18px;
+			font-range: $small $x-large;
+			line-height: 20px;
+		}
+	}
+}

@@ -1,0 +1,282 @@
+// -----------------------------
+// = Daily Metrics
+// -----------------------------
+.metrics-grid {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-content: center;
+	align-items: flex-start;
+	border: 1px solid $neutralGreyLight;
+	border-top: 1px solid $neutralGreyMedium;
+	.metrics-title {
+		padding: 10px;
+		flex-basis: 100%;
+		font-size: responsive 12px 14px;
+		font-range: $small $x-large;
+		text-align: center;
+		border-bottom: 1px solid $neutralGreyLight;
+	}
+	.data-item {
+		order: 0;
+		flex: 0 1 50%;
+		max-width: 50%; // Needed so IE respects precise %
+		align-self: stretch;
+		border-right: 1px solid $neutralGreyLight;
+		border-bottom: 1px solid $neutralGreyLight;
+		background-color: $primaryWhite;
+		&:nth-of-type(2n+2) {
+			border-right-width: 0;
+		}
+		&:nth-last-of-type {
+			border-bottom-width: 0;
+		}
+		@include respond-to(medium) {
+			flex: 0 1 33.33333%;
+			max-width: 33.33333%; // Needed so IE respects precise %
+			&:nth-of-type(2n+2) {
+				border-right-width: 1px;
+			}
+			&:nth-of-type(3n+3) {
+				border-right-width: 0;
+			}
+		}
+	}
+	.data-cell-group {
+		min-height: 81px;
+		padding: 0 10px;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-content: stretch;
+		align-items: flex-start;
+		&.percent {
+			padding: 0 10px 0 2px;
+		}
+		.chart-data {
+			margin-bottom: 4px;
+			color: $primaryBlack;
+			font-size: responsive 21px 28px;
+			font-range: $small $x-large;
+			font-weight: 500;
+			font-family: sans-serif;
+			line-height: 1.2;
+		}
+		.small-text {
+			font-size: 10px;
+		}
+	}
+	.data-label-group {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-content: flex-start;
+		align-items: flex-start;
+		color: $neutralGreyDark;
+		i {
+			margin-right: 5px;
+			order: 0;
+			flex: 0 1 auto;
+			align-self: auto;
+		}
+		.item-label {
+			margin-left: 1px;
+			font-size: 14px;
+			font-family: serif;
+			order: 0;
+			flex: 1 1 auto;
+			align-self: center;
+			@include respond-to(x-large) {
+				font-size: 16px;
+			}
+			> sub {
+				margin-top: 5px;
+				color: $neutralGreyDark;
+				font-size: 9px;
+				display: block;
+			}
+		}
+	}
+}
+
+// Landscape
+.iPhone,
+.Android {
+	.metrics-grid {
+		@media only screen and (orientation: landscape) {
+			display: none;
+		}
+	}
+}
+
+// Radial Text
+.metrics-grid {
+	.gauge-label {
+		.item-label {
+			margin-left: 5px;
+			color: $primaryBlack;
+			font-size: responsive 14px 16px;
+			font-range: $small $x-large;
+			font-family: sans-serif;
+			//font-weight: 700;
+		}
+	}
+}
+.metrics-grid {
+	.data-label-group {
+		.gauge-item-label {
+			order: 0;
+			flex: 1 1 auto;
+			align-self: center;
+			color: $primaryBlack;
+			font-size: responsive 14px 16px;
+			font-range: $small $x-large;
+			font-family: sans-serif;
+		}
+	}
+}
+
+// Control gauge-container item-label center position
+.iPhone {
+	.metrics-grid {
+		.data-cell-group {
+			.gauge-container {
+				flex: 0 0 auto;
+			}
+			.item-label {
+				flex: 1 1 auto;
+			}
+		}
+	}
+}
+
+// 360deg Radial Gauges
+.gauge-container {
+	//padding-right: 5px;
+	position: relative;
+	order: 0;
+	flex: 0 1 auto;
+	align-self: center;
+	.gauge-item {
+		width: 64px;
+		height: 64px;
+	}
+	.gauge-value {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		position: absolute;
+		color: $primaryBlack;
+		text-align: center;
+		font-family: sans-serif;
+		font-weight: bold;
+		span.small {
+			margin-left: -3px;
+			font-size: 10px;
+		}
+	}
+}
+
+// 180deg Radial Gauges
+.data-item.halfgauge {
+	flex-basis: 100%;
+	border-right-width: 0;
+	border-bottom: 1px solid $neutralGreyLight;
+	.gauge-container {
+		.gauge-item {
+			width: 128px;
+			height: 64px;
+		}
+		.gauge-value {
+			top: 75%;
+			left: 50%;
+			transform: translate(-50%, -75%);
+			font-size: 18px;
+		}
+	}
+	.data-label-group {
+		.item-label {
+			margin-top: 5px;
+			margin-left: 5px;
+			color: $neutralGreyMedium;
+			.starts {
+				margin-left: 10px;
+				color: $primaryBlack;
+				&:nth-of-type(1) {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+	&:nth-last-child {
+		border-bottom-width: 0;
+	}
+	@include respond-to(medium) {
+		flex: 0 1 33.33333%;
+		max-width: 33.33333%; // Needed so IE respects 33.3333%
+		border-bottom-width: 0;
+		border-right-width: 1px;
+		&:nth-child(n+4) {
+			border-right-width: 0;
+		}
+	}
+	.data-label-group {
+		.chart-data {
+			font-size: responsive 16px 18px;
+			font-range: $small $x-large;
+		}
+		.gauge-item {
+			max-width: 96px;
+			max-height: 96px;
+		}
+	}
+}
+
+// Screen Specific
+// Rooms Running
+.roomsrunning {
+	.metrics-grid .data-item {
+		&:nth-last-of-type(-1n+2) {
+			border-bottom-width: 0;
+		}
+	}
+}
+
+// OR Tracking
+.ortracking {
+	.metrics-grid {
+		&:nth-child(1) {
+			border-bottom: 0;
+		}
+	}
+	.metrics-grid .data-item {
+		&:nth-last-of-type(-1n+2) {
+			border-bottom: none;
+		}
+		&.halfgauge {
+			flex: 0 1 100%;
+			max-width: 100%; // Needed so IE respects precise %
+			&:nth-last-of-type(2) {
+				border-bottom: 1px solid $neutralGreyLight;
+			}
+		}
+		@include respond-to(medium) {
+			&:nth-last-of-type(-n+2) {
+				border-bottom: none;
+			}
+			&.halfgauge {
+				flex: 0 1 33.33333%;
+				max-width: 33.33333%;
+				&:nth-last-of-type(2) {
+					border-bottom: none;
+				}
+			}
+			&:nth-last-of-type(2) {
+				border-right: 1px solid $neutralGrey;
+			}
+		}
+	}
+}

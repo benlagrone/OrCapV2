@@ -1,0 +1,64 @@
+{
+  "selectgroups":{
+
+    "roomOptions" : [
+    {"optionId": "ALL", "optionValue": "ALL"},
+    {"optionId": "19|20|21|22|23|24|25|26", "optionValue": "OR01-OR08"},
+    {"optionId": "27|28|29|30|31|32|33|34", "optionValue": "OR09-OR17"},
+    {"optionId": "35|36|37|38|39|40|41|42", "optionValue": "OR18-OR25"},
+    {"optionId": "43|44|45|46|47|53|94", "optionValue": "OR26-OR32 Brain Suite"},
+    {"optionId": "19", "optionValue": "OR01"},
+    {"optionId": "20", "optionValue": "OR02"},
+    {"optionId": "21", "optionValue": "OR03"},
+    {"optionId": "22", "optionValue": "OR04"},
+    {"optionId": "23", "optionValue": "OR05"},
+    {"optionId": "24", "optionValue": "OR06"},
+    {"optionId": "25", "optionValue": "OR07"},
+    {"optionId": "26", "optionValue": "OR08"},
+    {"optionId": "27", "optionValue": "OR09"},
+    {"optionId": "28", "optionValue": "OR10"},
+    {"optionId": "29", "optionValue": "OR11"},
+    {"optionId": "30", "optionValue": "OR12"},
+    {"optionId": "31", "optionValue": "OR14"},
+    {"optionId": "32", "optionValue": "OR15"},
+    {"optionId": "33", "optionValue": "OR16"},
+    {"optionId": "34", "optionValue": "OR17"},
+    {"optionId": "35", "optionValue": "OR18"},
+    {"optionId": "36", "optionValue": "OR19"},
+    {"optionId": "37", "optionValue": "OR20"},
+    {"optionId": "38", "optionValue": "OR21"},
+    {"optionId": "39", "optionValue": "OR22"},
+    {"optionId": "40", "optionValue": "OR23"},
+    {"optionId": "41", "optionValue": "OR24"},
+    {"optionId": "42", "optionValue": "OR25"},
+    {"optionId": "43", "optionValue": "OR26"},
+    {"optionId": "44", "optionValue": "OR27"},
+    {"optionId": "45", "optionValue": "OR28"},
+    {"optionId": "46", "optionValue": "OR29"},
+    {"optionId": "47", "optionValue": "OR30"},
+    {"optionId": "53", "optionValue": "OR31 ROBOTIC RM"},
+    {"optionId": "94", "optionValue": "OR32 Brain Suite"}
+    ],
+    "resolutionOptions" : [
+    {"optionId": "1 Hour", "optionValue": "60"},
+    {"optionId": "30 Mins", "optionValue": "30"},
+    {"optionId": "15 Mins", "optionValue": "15"}
+    ],
+    "onTimeThresholdOptions" : [
+    {"optionId": "0 Mins", "optionValue": "0"},
+    {"optionId": "0", "optionValue": "0 Mins"},
+    {"optionId": "2", "optionValue": "2 Mins"},
+    {"optionId": "4", "optionValue": "4 Mins"},
+    {"optionId": "5", "optionValue": "5 Mins"},
+    {"optionId": "10", "optionValue": "10 Mins"},
+    {"optionId": "15", "optionValue": "15 Mins"},
+    {"optionId": "20", "optionValue": "20 Mins"},
+    {"optionId": "25", "optionValue": "25 Mins"},
+    {"optionId": "30", "optionValue": "30 Mins"},
+    {"optionId": "35", "optionValue": "35 Mins"},
+    {"optionId": "40", "optionValue": "40 Mins"},
+    {"optionId": "50", "optionValue": "50 Mins"},
+    {"optionId": "60", "optionValue": "1 Hr"}
+    ]
+  }
+}

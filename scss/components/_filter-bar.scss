@@ -1,0 +1,179 @@
+// -----------------------------
+// = Chart Filter Bar and Legend
+// -----------------------------
+.filterbar {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: stretch;
+	align-items: flex-start;
+	background-color: $primaryWhite;
+	.active-filters,
+	.show-legend {
+		order: 0;
+		flex: 1 0 50%;
+		max-width: 50%; // Needed so IE respects precise %
+		align-self: center;
+		padding: 10px;
+		font-size: responsive 12px 14px;
+		font-range: $small $x-large;
+		line-height: 1.5;
+		border: 1px solid $neutralGreyLight;
+		border-top-width: 0;
+	}
+	.active-filters {
+		display: block;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		> span {
+			display: none;
+		}
+		@include respond-to(medium) {
+			flex: 1 0 auto;
+			max-width: 100%; // Needed so IE respects precise %
+			> span {
+				display: inline;
+			}
+		}
+		// Landscape
+		@media only screen and (orientation: landscape) {
+			flex: 1 0 auto;
+			max-width: 100%; // Needed so IE respects precise %
+		}
+	}
+	.show-legend {
+		margin-bottom: 0;
+		color: $secondaryBlue;
+		font-weight: normal;
+		text-decoration: none;
+		text-align: center;
+		border-left-width: 0;
+		&:before {
+			content: "Show Legend";
+		}
+		&:hover {
+			color: $secondaryBlueBright;
+		}
+		@include respond-to(medium) {
+			flex: 0 1 25%;
+			max-width: 25%;
+		}
+		@media only screen and (orientation: landscape) {
+			flex: 0 1 25%;
+			max-width: 25%;
+		}
+		i {
+			float: right;
+		}
+	}
+	// Hidden checkbox for show/hide
+	.legend-input {
+		margin-top: 0;
+		display: none;
+		&:checked ~ .show-legend {
+			&:before {
+				content: "Close Legend";
+			}
+			border-bottom-color: transparent;
+		}
+		// up/down arrows
+		&:not(checked) ~ .show-legend i:before {
+			content: "\e911";
+		}
+		&:checked ~ .show-legend i:before {
+			content: "\e912";
+		}
+		// show/hide legend container
+		&:not(checked) ~ [title~=legend] {
+			max-height: 0;
+			opacity: 0;
+			border: none;
+			visibility: hidden;
+			transition: visibility 0.1s, opacity 0.1s linear, max-height 0.1s;
+		}
+		&:checked ~ [title~=legend] {
+			max-height: 120px;
+			opacity: 1;
+			border: 1px solid $neutralGreyLight;
+			border-top-width: 0;
+			visibility: visible;
+			transition: visibility 0.3s, opacity 0s linear, max-height 0.3s;
+		}
+	}
+	// Legend Container
+	.legend {
+		flex-basis: 100%;
+		overflow: hidden;
+		ul {
+			width: 50%;
+			margin: 10px 0 20px 0;
+			padding: 0 10px;
+			float: left;
+			font-size: 12px;
+			list-style: none;
+			&:first-of-type {
+				padding-left: 20px;
+			}
+			li {
+				position: relative;
+				padding: 0 0 0 20px;
+				&:before {
+					width: 14px;
+					height: 6px;
+					margin: 0 5px 0 -20px;
+					content: "";
+					display: inline-block;
+					vertical-align: middle;
+				}
+				// Legend Colors
+				// Rooms Running
+				&.rr-booked:before {
+					background-color: $secondaryBlueBright;
+				}
+				&.rr-actual:before {
+					background-color: $secondaryGreenBright;
+				}
+				&.rr-staffed:before {
+					height: 2px;
+					background-color: $primaryRed;
+				}
+				&.rr-total-avail-rooms:before {
+					border: 1px solid $primaryBlack;
+					background-color: $primaryWhite;
+				}
+				// OR Tracking
+				&.ort-booking,
+				&.ort-actual {
+					margin-bottom: 10px;
+					padding-bottom: 5px;
+					font-weight: 500;
+					border-bottom: 1px dashed $neutralGreyLight;
+				}
+				&.ort-booking:before {
+					background: linear-gradient(to right, $primaryRed 0%, $primaryRed 32%, $primaryRed 32%, $secondaryGreenBright 33%, $secondaryGreenBright 66%, $primaryRed 67%, $primaryRed 67%, $primaryRed 100%);
+				}
+				&.ort-booking-st:before {
+					background-color: $primaryRed;
+				}
+				&.ort-cut-ct:before {
+					background-color: $secondaryGreenBright;
+				}
+				&.ort-actual:before {
+					background: linear-gradient(to right, $secondaryOrangeBright 0%, $secondaryOrangeBright 32%, $secondaryOrangeBright 32%, $secondaryGreenBright 33%, $secondaryGreenBright 66%, $secondaryOrangeBright 67%, $secondaryOrangeBright 67%, $secondaryOrangeBright 100%);
+				}
+				&.ort-actual-st:before {
+					background-color: $secondaryOrangeBright;
+				}
+				&.ort-cut-ct:before {
+					background-color: $secondaryGreenBright;
+				}
+				&.ort-patient-tt:before {
+					border: 1px solid $primaryBlack;
+					background-color: $primaryWhite;
+				}
+			}
+		}
+	}
+}

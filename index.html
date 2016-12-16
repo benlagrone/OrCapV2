@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>OR Capacity</title>
+
+	<link href="lib/kendo-ui/styles/kendo.common.min.css" rel="stylesheet">
+	<link href="lib/kendo-ui/styles/kendo.default.min.css" rel="stylesheet">
+	<!--<link href="lib/kendo-ui/styles/kendo.mobile.all.min.css" rel="stylesheet">-->
+	<link href="content/css/style.min.css" rel="stylesheet">
+
+	<!--[if !IE]> -->
+	<script defer src="bower_components/svgxuse/svgxuse.min.js"></script>
+	<!-- <![endif]-->
+	<script src="bower_components/hammerjs/hammer.min.js"></script>
+	<script src="bower_components/x2js/xml2json.min.js"></script>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+	<script src="bower_components/angular-touch/angular-touch.js"></script>
+
+	<script src="bower_components/moment/min/moment.min.js"></script>
+	<script src="bower_components/moment/min/moment-with-locales.min.js"></script>
+	<script src="lib/kendo-ui/js/kendo.all.min.js"></script>
+	<script src="content/js/app.js"></script>
+
+	<!--Favicons-->
+	<link rel="apple-touch-icon" sizes="57x57" href="content/favicon/apple-touch-icon-57x57.png?v=02a">
+	<link rel="apple-touch-icon" sizes="60x60" href="content/favicon/apple-touch-icon-60x60.png?v=02a">
+	<link rel="apple-touch-icon" sizes="72x72" href="content/favicon/apple-touch-icon-72x72.png?v=02a">
+	<link rel="apple-touch-icon" sizes="76x76" href="content/favicon/apple-touch-icon-76x76.png?v=02a">
+	<link rel="apple-touch-icon" sizes="114x114" href="content/favicon/apple-touch-icon-114x114.png?v=02a">
+	<link rel="apple-touch-icon" sizes="120x120" href="content/favicon/apple-touch-icon-120x120.png?v=02a">
+	<link rel="apple-touch-icon" sizes="144x144" href="content/favicon/apple-touch-icon-144x144.png?v=02a">
+	<link rel="apple-touch-icon" sizes="152x152" href="content/favicon/apple-touch-icon-152x152.png?v=02a">
+	<link rel="apple-touch-icon" sizes="180x180" href="content/favicon/apple-touch-icon-180x180.png?v=02a">
+	<link rel="icon" type="image/png" href="content/favicon/favicon-32x32.png?v=02a" sizes="32x32">
+	<link rel="icon" type="image/png" href="content/favicon/favicon-194x194.png?v=02a" sizes="194x194">
+	<link rel="icon" type="image/png" href="content/favicon/favicon-96x96.png?v=02a" sizes="96x96">
+	<link rel="icon" type="image/png" href="content/favicon/android-chrome-192x192.png?v=02a" sizes="192x192">
+	<link rel="icon" type="image/png" href="content/favicon/favicon-16x16.png?v=02a" sizes="16x16">
+	<link rel="manifest" href="content/favicon/manifest.json?v=02a">
+	<link rel="mask-icon" href="content/favicon/safari-pinned-tab.svg?v=02a" color="#da291c">
+	<link rel="shortcut icon" href="favicon.ico?v=02a">
+	<meta name="apple-mobile-web-app-title" content="OR Capacity">
+	<meta name="application-name" content="OR Capacity">
+	<meta name="msapplication-TileColor" content="#da291c">
+	<meta name="msapplication-TileImage" content="content/favicon/mstile-144x144.png?v=02a">
+	<meta name="msapplication-config" content="content/favicon/browserconfig.xml?v=02a">
+	<meta name="theme-color" content="#ffffff">
+</head>
+
+<body ng-app="orCapMobileApp" navelement pullrefresh class="{{landscapemode}} {{label.agentName}}" ng-class="{min:boolChangeClass}">
+<style>
+	#refreshTab{
+		display:none;
+		height:0px;
+	}
+	#refreshTab.show{
+		display:inline;
+		text-align:center;
+		padding:2%;
+	}
+	#refreshTab.show svg{
+	animation-name: ckw;
+	animation-duration: 7s;
+	}
+	@keyframes ckw {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+</style>
+<div id="refreshTab" ng-class="{show:pullClass}">
+
+	<?xml version="1.0" encoding="utf-8"?>
+	<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+		<path fill="#666" d="M16 6h-6l2.243-2.243c-1.133-1.133-2.64-1.757-4.243-1.757s-3.109 0.624-4.243 1.757c-1.133 1.133-1.757 2.64-1.757 4.243s0.624 3.109 1.757 4.243c1.133 1.133 2.64 1.757 4.243 1.757s3.109-0.624 4.243-1.757c0.095-0.095 0.185-0.192 0.273-0.292l1.505 1.317c-1.466 1.674-3.62 2.732-6.020 2.732-4.418 0-8-3.582-8-8s3.582-8 8-8c2.209 0 4.209 0.896 5.656 2.344l2.343-2.344v6z"></path>
+	</svg>
+</div>
+<nav class="navbar navbar-default">
+
+	<div class="container" ng-controller="navController" >
+		<div class="navbar-header">
+			<div class="navbar-toggle collapsed" ng-hide="showFilter">
+				<button type="button" ng-click="toggleCustom('showButton')"  aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<span>Menu</span>
+			</div>
+
+			<a class="navbar-back" ng-hide="!showFilter" href="{{filterBackLink}}"><i class="orc orc-arrow-back orc-3x"></i><span>Back</span></a>
+			<!--<div class="app-title">-->
+				<!--<img src="/content/img/logo-mdacc-stacked.svg" alt="MD Anderson Cancer Center">-->
+			<!--</div>-->
+			<div class="section-title">{{label.title}} - {{label.facility}}</div>
+			<div id="filters" class="navbar-filter" ng-hide="showFilter"><a href="{{filterLink}}"><i class="orc orc-filter-alt orc-2x"></i><span>Filters</span></a></div>
+		</div>
+
+		<div id="navbar" ng-hide="showFilter" class="navbar-collapse" ng-class="collapse">
+			<ul class="nav navbar-nav" ng-hide="showFilter">
+				<li class="navbar-nav-title hidden-md hidden-lg" >
+					OR Capacity Menu
+				</li>
+				<li ng-class="{active: isActive('/roomsrunning')}"><a ng-click="toggleCustom('roomsrunning')" ng-href="#/roomsrunning">Rooms Running</a></li>
+				<li ng-class="{active: isActive('/ortracking')}"><a ng-click="toggleCustom('ortracking')" ng-href="#/ortracking">OR Tracking</a></li>
+			</ul>
+			<div class="footer-build hidden-md hidden-lg" >
+				MD Anderson OR Capacity <span class="build-number">Build {{versionInfo}}</span>
+			</div>
+		</div>
+
+	</div>
+</nav>
+
+<div ng-view></div>
+
+</body>
+</html>

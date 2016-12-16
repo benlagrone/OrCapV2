@@ -1,0 +1,40 @@
+// -----------------------------
+// = MDACC Colors
+// -----------------------------
+
+$primaryRed: #da291c;
+$primaryBlack: #000;
+$primaryWhite: #fff;
+
+$neutralGreyDarkest: #3f3d3d;
+$neutralGreyDark: #605d5d;
+$neutralGreyMedium: #828282;
+$neutralGrey: #d0d0ce;
+$neutralGreyLight: #dddcd2;
+$neutralGreyLightest: #f2f3f4;
+$neutralBeige: #f1f1f1;
+
+$secondaryRed: #ae2116;
+$secondaryOrange: #e96613;
+$secondaryYellow: #f9ca1f;
+$secondaryGreen: #529144;
+$secondaryBlue: #2f60b2;
+$secondaryPurple: #783491;
+$secondaryGreenLight: #a1b21a;
+$secondaryBlueLight: #23b8f1;
+$secondaryBlack: #222121;
+
+$secondaryBlueBright: #23B8F1;
+$secondaryGreenBright: #04aa35;
+$secondaryOrangeBright: #ff8600;
+
+$primaryRedGradientDark: #c50026;
+$secondaryBlueGradientDark: #385999;
+$secondaryBlueLightGradientDark: #00a9c8;
+$secondaryGreenGradientDark: #04906f;
+$secondaryPurpleGradientDart: #662c7b;
+$secondaryOrangeGradientDark: #db6e29;
+
+$secondaryBlueAlternate: #5980c1;
+
+$color-link-hover: darken($primaryRed, 10%);

@@ -1,0 +1,13 @@
+// -----------------------------
+// = KendoUI K-Chart Styles
+// -----------------------------
+div.k-chart, div.k-gauge, span.k-sparkline, .k-stockchart {
+	background-color: transparent;
+}
+.k-chart, .k-stockchart {
+	height: 400px;
+}
+.k-chart, .k-gauge, .k-sparkline, .k-stockchart {
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
